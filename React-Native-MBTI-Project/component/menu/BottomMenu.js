@@ -6,7 +6,7 @@ const BottomMenu = ({ navigation }) => {
   const menuMoves = ["First", "Second", "Third"];
 
   const onMenuItemPress = (index) => {
-    // 메뉴 항목을 클릭했을 때의 동작을 정의합니다.
+    // 메뉴 항목을 클릭했을 때의 동작.
     navigation.navigate(menuMoves[index]);
   };
   return (

@@ -1,14 +1,11 @@
 // ResultScreen.js
 import React, { useState, useEffect } from "react";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
-import { Text } from "react-native-paper";
-import { Dimensions, SafeAreaView, View } from "react-native";
+import { SafeAreaView } from "react-native";
 import axios from "axios";
-// css
+// component
 import Loading from "./Loading";
-import BottomMenu from "./menu/BottomMenu";
 import First from "./menu/screen/First";
-import Second from "./menu/screen/Second";
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -20,9 +17,8 @@ function ResultScreen({ route, navigation }) {
   const [viewFlag, setViewFlag] = useState([]);
   const [mbtiData, setMbtiData] = useState("");
 
-  const api = "http://10.0.2.2:8080";
-  // "https://port-0-react-native-mbti-project-lme62alhih8uuf.sel4.cloudtype.app";
-  // const api = "http://kiuti.iptime.org:3000";
+  // const api = "http://10.0.2.2:3000";
+  const api = "http://kiuti.iptime.org:3000";
 
   const getMbtiResult = async (formData) => {
     await axios
@@ -34,7 +30,7 @@ function ResultScreen({ route, navigation }) {
       .then((res) => {
         if (res.data == "fail") {
           navigation.navigate("Home");
-          alert("Re Upload");
+          alert("Upload Fail");
         }
         setMbtiData(res.data);
       })
@@ -92,7 +88,7 @@ function ResultScreen({ route, navigation }) {
     }
   };
   useEffect(() => {
-    console.log("loading bar...");
+    // console.log("loading bar...");
     loadingInterval();
   }, [mbtiData]);
 
@@ -101,7 +97,7 @@ function ResultScreen({ route, navigation }) {
     // setProgress(100);
     // setMbtiData([
     //   {
-    //     name: "김찬민",
+    //     name: "test1",
     //     labels: ["INFP", "ISFP", "INTP", "ESFP", "ENTP", "ENTJ", "INTP"],
     //     datasets: [
     //       {
@@ -110,7 +106,7 @@ function ResultScreen({ route, navigation }) {
     //     ],
     //   },
     //   {
-    //     name: "김찬민 2",
+    //     name: "test 2",
     //     labels: ["ISFP", "INFP", "INTP", "ESFP", "ENTP", "ENTJ", "INTP"],
     //     datasets: [
     //       {
@@ -119,8 +115,8 @@ function ResultScreen({ route, navigation }) {
     //     ],
     //   },
     //   {
-    //     name: "김찬민 3",
-    //     labels: ["ISFP", "INFP", "INTP", "ESFP", "ENTP", "ENTJ", "INTP"],
+    //     name: "test 3",
+    //     labels: ["ESFP", "INFP", "INTP", "ESFP", "ENTP", "ENTJ", "INTP"],
     //     datasets: [
     //       {
     //         data: [50, 10, 5, 5, 5, 4, 1],
@@ -128,8 +124,8 @@ function ResultScreen({ route, navigation }) {
     //     ],
     //   },
     //   {
-    //     name: "김찬민 3",
-    //     labels: ["ISFP", "INFP", "INTP", "ESFP", "ENTP", "ENTJ", "INTP"],
+    //     name: "김찬민 4",
+    //     labels: ["ISTP", "INFP", "INTP", "ESFP", "ENTP", "ENTJ", "INTP"],
     //     datasets: [
     //       {
     //         data: [50, 10, 5, 5, 5, 4, 1],
@@ -142,17 +138,19 @@ function ResultScreen({ route, navigation }) {
       getMbtiResult(formData);
       // 프로그래스 바의 진행 상황을 업데이트하는 코드
     } else {
-      console.log("Empty Data");
-      // navigation.navigate("Home");
+      // console.log("Empty Data");
+      alert("Empty Data");
+      navigation.navigate("Home");
     }
   }, []);
   return (
     <>
       {finalProgress == 100 && mbtiData ? (
         <>
-          <Text style={{ position: "absolute", bottom: 0 }}>test</Text>
           <SafeAreaView style={{ flex: 1 }}>
-            <Tab.Navigator
+            <First mbtiData={mbtiData}></First>
+            {/* 상단 슬라이드 네비게이트 */}
+            {/* <Tab.Navigator
               initialRouteName="First"
               screenOptions={{
                 tabBarLabelStyle: {
@@ -174,7 +172,7 @@ function ResultScreen({ route, navigation }) {
                 component={Second}
                 initialParams={{ mbtiData }}
               />
-            </Tab.Navigator>
+            </Tab.Navigator> */}
           </SafeAreaView>
         </>
       ) : (
