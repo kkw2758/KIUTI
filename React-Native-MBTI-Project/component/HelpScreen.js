@@ -1,4 +1,3 @@
-// HelpScreen.js
 import React from "react";
 import {
   StyleSheet,
@@ -12,6 +11,7 @@ import { Text } from "react-native-paper";
 
 function HelpScreen() {
   return (
+    // <View style={{ backgroundColor: theme.colors.accent }}>
     <>
       <ScrollView>
         <SafeAreaView style={styles.container}>
@@ -52,6 +52,7 @@ function HelpScreen() {
               style={styles.image}
               resizeMode="contain"
             ></Image>
+            {/* <Image source={require("./Img/Loading-dark-1s-200px.gif")}></Image> */}
           </View>
         </SafeAreaView>
       </ScrollView>
@@ -61,6 +62,12 @@ function HelpScreen() {
 
 const styles = StyleSheet.create({
   container: {
+    // flex: 1,
+    // backgroundColor: "blue",
+    // width: Dimensions.get("window").width,
+    // height: Dimensions.get("window").height,
+
+    // justifyContent: "center",
     alignItems: "center",
   },
   image: {

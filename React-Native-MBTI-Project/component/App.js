@@ -6,6 +6,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 // // componenet
 import HomeScreen from "./HomeScreen";
 import ResultScreen from "./ResultScreen";
+// import HelpScreen from "./HelpScreen";
 // // css
 import styles from "./styles/app_css";
 import HelpScreen from "./HelpScreen";
@@ -42,6 +43,10 @@ function App() {
             </Stack.Navigator>
           </NavigationContainer>
         </View>
+        {/* <View style={styles.footer}>
+          <Text style={styles.footer_text}>약관</Text>
+          <Text style={styles.footer_text}>copyright</Text>
+        </View> */}
       </SafeAreaView>
     </>
   );

@@ -1,7 +1,8 @@
 // ResultScreen.js
 import React, { useState, useEffect } from "react";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
-import { SafeAreaView } from "react-native";
+import { Text } from "react-native-paper";
+import { Dimensions, SafeAreaView, View } from "react-native";
 import axios from "axios";
 // component
 import Loading from "./Loading";
@@ -97,7 +98,7 @@ function ResultScreen({ route, navigation }) {
     // setProgress(100);
     // setMbtiData([
     //   {
-    //     name: "test1",
+    //     name: "김찬민",
     //     labels: ["INFP", "ISFP", "INTP", "ESFP", "ENTP", "ENTJ", "INTP"],
     //     datasets: [
     //       {
@@ -106,7 +107,7 @@ function ResultScreen({ route, navigation }) {
     //     ],
     //   },
     //   {
-    //     name: "test 2",
+    //     name: "김찬민 2",
     //     labels: ["ISFP", "INFP", "INTP", "ESFP", "ENTP", "ENTJ", "INTP"],
     //     datasets: [
     //       {
@@ -115,7 +116,7 @@ function ResultScreen({ route, navigation }) {
     //     ],
     //   },
     //   {
-    //     name: "test 3",
+    //     name: "김찬민 3",
     //     labels: ["ESFP", "INFP", "INTP", "ESFP", "ENTP", "ENTJ", "INTP"],
     //     datasets: [
     //       {
@@ -149,7 +150,6 @@ function ResultScreen({ route, navigation }) {
         <>
           <SafeAreaView style={{ flex: 1 }}>
             <First mbtiData={mbtiData}></First>
-            {/* 상단 슬라이드 네비게이트 */}
             {/* <Tab.Navigator
               initialRouteName="First"
               screenOptions={{

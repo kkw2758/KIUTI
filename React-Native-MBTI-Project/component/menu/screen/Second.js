@@ -1,4 +1,3 @@
-// Second.js
 import React, { useEffect, useState } from "react";
 import {
   TouchableOpacity,
@@ -165,6 +164,7 @@ const Second = ({ route }) => {
             <FlatList
               data={mbtiData}
               renderItem={renderItem}
+              // keyExtractor={(index) => index}
               numColumns={1}
             ></FlatList>
             {/* 오른쪽 궁합판 */}
@@ -175,6 +175,7 @@ const Second = ({ route }) => {
               top: 0,
               right: 0,
               width: (Dimensions.get("window").width / 3) * 2,
+              // height: Dimensions.get("window").height,
               height: "100%",
               backgroundColor: "white",
             }}

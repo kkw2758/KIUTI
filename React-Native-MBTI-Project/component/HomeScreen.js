@@ -81,8 +81,9 @@ const HomeScreen = ({ navigation }) => {
     }
   };
   /** MBTI 결과 받아오기
-   * 파일을 올려둔 경우
+   ** 파일을 올려둔 경우
    * fileContent가 있는 경우
+   *
    */
   const configHandler = () => {
     setSideFlag((state) => !state);
@@ -200,6 +201,11 @@ const HomeScreen = ({ navigation }) => {
           </Button>
           <View>{/* <Text>Made by BootStrap</Text> */}</View>
         </View>
+        {/* Footer */}
+        {/* <View style={{ position: "absolute", bottom: 0, alignItems: "center" }}>
+          <Text>약관</Text>
+          <Text>ⓒ 2023. BootStrap all rights reserved</Text>
+        </View> */}
       </SafeAreaView>
     </>
   );

@@ -1,12 +1,7 @@
 // First.js
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import { FlatList, View, Dimensions, SafeAreaView } from "react-native";
-import { Button, Text } from "react-native-paper";
-//  MBTI 유형 정의  
-// color: "#xxxxxx"
-// type: "xxx형",
-// name: "",
-// characteristic: 장점 3개
+import { Button, Text, DefaultTheme } from "react-native-paper";
 import {
   INTJ,
   INTP,
@@ -27,8 +22,14 @@ import {
 } from "./graph/MBTIType";
 import { BarChart } from "react-native-chart-kit";
 import MatchGraph from "./graph/MatchGraph";
-
+// css
+// import styles from "./styles/result_css";
+// const First = ({route}) => {
 const First = ({ mbtiData }) => {
+  // const mbtiData = route.params.mbtiData;
+  // console.log(mbtiData);
+  // console.log(mbtiData);
+  // const mbtiData = mbtiData;
   const [viewFlag, setViewFlag] = useState([]);
   // 토글 기능 수행
   const handleViewItem = useCallback((index) => {
@@ -156,7 +157,16 @@ const First = ({ mbtiData }) => {
           </Button>
           {viewFlag[index] && (
             <>
-              <View>
+              <View
+                style={
+                  {
+                    // borderBottomColor: "black",
+                    // borderTopWidth: 0.5,
+                    // borderBottomWidth: 1,
+                    // borderStyle: "solid",
+                  }
+                }
+              >
                 <BarChart
                   data={items}
                   width={Dimensions.get("window").width - 50} // 그래프 사이 간격
@@ -265,6 +275,11 @@ const First = ({ mbtiData }) => {
           <FlatList
             data={mbtiData}
             renderItem={({ item, index }) => MBTIResultList(item, index)}
+            ListHeaderComponent={
+              <>
+                {/* <Text style={{ fontSize: 24, color: "black" }}>Result</Text> */}
+              </>
+            }
             keyExtractor={(item, index) => index.toString()}
           />
         </SafeAreaView>
